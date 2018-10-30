@@ -61,13 +61,13 @@ public class Race{
 		turtle.start();
 		rabbit.start();
 		while(rabbit.isAlive() && turtle.isAlive()){
-			if(tur.getDistance() > length){
+			if((tur.getDistance() > length) && rabbit.isAlive()){
 				dif = length - rab.getDistance();
 				System.out.printf("Turtle won!\n Rabbit Looses the race by: " + dif + " \n");
 				turtle.interrupt();
 				turtle.join();
 				rabbit.interrupt();
-			} else if(rab.getDistance() > length){
+			} else if((rab.getDistance() > length) && turtle.isAlive()){
 				dif = length - tur.getDistance();
 				System.out.printf("Rabbit won!\n Turtle Looses the race by: " + dif + " \n");
 				rabbit.interrupt();
