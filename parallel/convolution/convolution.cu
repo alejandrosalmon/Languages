@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define N 10
-#define M 10
+#define N 11
+#define M 11
 #define ThreadsPerBlock 10
 #define NumBlocks  (ThreadsPerBlock + (N*M-1))/ThreadsPerBlock
 
@@ -12,7 +12,7 @@ __device__ void convolution(int conv_col, int conv_row, float *d_kernel, int k_s
                 d_conv[conv_index] += 
                 d_kernel[k_col + (k_row*k_size)] *
                 d_matrix[(conv_col+k_col) + (conv_row+k_row)*size_x];
-                printf("row %i col %i d_conv[] = %f \n", row, col, d_conv[col+ row*max_col]);
+                //printf("row %i col %i d_conv[] = %f \n", k_row, k_col, d_conv[k_col+ k_     row*max_col]);
             }
         }
 }
@@ -41,9 +41,18 @@ void fill_mat(float *mat, int n){
     int c = 0;
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
-            mat[i*n+j] = c++;
+            mat[i*n+j] = c++%10;
         }
     }
+}
+
+void fill_ker(float *mat, int n){
+    float c = .5;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            mat[i*n+j] = c;
+        }
+    }   
 }
 
 int main(){
@@ -60,7 +69,7 @@ int main(){
     h_matrix = (float *)malloc(sizeof(float)*size_x*size_y);
     h_conv = (float *)malloc(sizeof(float)*max_row*max_col);
 
-    fill_mat(h_kernel, k_size);
+    fill_ker(h_kernel, k_size);
     fill_mat(h_matrix, size_x);
 
     print_mat(h_kernel, k_size);
