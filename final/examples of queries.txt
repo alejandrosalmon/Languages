@@ -1,0 +1,6 @@
+(month day year	artist	 venue 	city  title attendance price)
+'(July 1 2017	"Vasco Rossi"  	"Enzo Ferrari Park"	"Modena"	"Modena Park 2017" 220000  75)
+'(April 21 1990	"Paul McCartney" "Maracanã Stadium"	"Rio de Janeiro"	"The Paul McCartney World Tour"	184000	 28)
+'(January 16 1988	"Tina Turner"	"Maracanã Stadium"	"Rio de Janeiro"	"Break Every Rule World Tour"	180000	 16)
+'(March 20 1981	Queen	"Estádio do Morumbi"	"São Paulo"	"The Game Tour"	131000	  15)
+'(March 21 1981	Queen	"Estádio do Morumbi"	"São Paulo"	"The Game Tour"	120000  15)
